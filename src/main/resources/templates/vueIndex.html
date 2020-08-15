@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function(){
+            // vue.js的代码开始于一个Vue对象。所以每次操作数据都要声明Vue对象开始。
+            var vm = new Vue({
+                el:'#app',   // 设置当前vue对象要控制的标签范围。
+                data:{  // data是将要展示到HTML标签元素中的数据。
+                    message: 'hello world!',
+                    htmlText: '<a href="www.baidu.com">baidu</a>',
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <!-- {{ message }} 表示把vue对象里面data属性中的对应数据输出到页面中 -->
+    <!-- 在双标签中显示数据要通过{{  }}来完成 -->
+    <p>{{ message }}</p>
+
+    <!--  js还有一种运算符,三元运算符,类似于python里面的三元表达式 -->
+    <p>num是一个{{num%2==0?'偶数':'奇数'}}</p>
+
+    <!-- 如果要输出data里面的数据作为表单元素的值，需要使用vue.js提供的元素属性v-model-->
+    <input v-model="message" />
+
+    <!-- 显示html数据要通过v-html属性来完成 -->
+    <p v-html="htmlText"></p>
+</div>
+</body>
+</html>
